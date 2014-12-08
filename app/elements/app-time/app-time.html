@@ -1,0 +1,23 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<polymer-element name="app-time" attributes="">
+  <template>
+    <link rel="stylesheet" href="app-time.css">
+
+    <div>{{time}}</div>
+  </template>
+  <script>
+    (function () {
+
+      Polymer({
+        ready: function () {
+          setInterval(function () {
+            var d = new Date();
+            this.time = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+          }.bind(this), 1000);
+        }
+      });
+
+    })();
+  </script>
+</polymer-element>
