@@ -1,0 +1,23 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<polymer-element name="app-pageController" attributes="active">
+  <template>
+    <link rel="stylesheet" href="app-pageController.css">
+
+    <shadow></shadow>
+  </template>
+  <script>
+    (function () {
+
+      Polymer({
+        ready: function () {
+          for (child in this.children) {
+            this.children[child].hidden = true;
+          }
+          this.children[this.active].hidden = false;
+        }
+      });
+
+    })();
+  </script>
+</polymer-element>

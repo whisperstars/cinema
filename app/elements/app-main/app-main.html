@@ -10,18 +10,23 @@
       </header>
       
       <main>
-        <app-filmsList id="filmsList" films='{{filmsList}}'></app-filmsList>
-        <!--<app-page id="cinemaHall">films="{{[filmsList]}}"
-          <app-cinemaHall></app-cinemaHall>
-          <app-filmDetails></app-filmDetails>
-        </app-page>
-      </main>-->
+        <app-pageController active="{{activePage}}">
+          <app-page id="filmsList">
+            <app-filmsList id="filmsList" films='{{filmsList}}'></app-filmsList>
+          </app-page>
+          <app-page id="cinemaHall">
+            <div class="cinemaHall"></div>
+          </app-page>
+        </app-pageController>
+      </main>
     </div>
   </template>
   <script>
     (function () {
 
       Polymer({
+        activePage: "filmsList",
+
         ready: function () {
           this.$.dateFilmsFilter.addEventListener('FilmListChanged', function (e) {
             this.filmsList = JSON.stringify(e.detail.filmList);

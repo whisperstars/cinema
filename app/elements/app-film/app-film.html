@@ -4,7 +4,7 @@
   <template>
     <link rel="stylesheet" href="app-film.css">
     
-    <div class="film">
+    <div class="film" on-click="{{chooseFilm}}">
       <div class="name">{{film.name}}</div>
       <div class="description">{{film.description}}</div>
       <div class="times">
@@ -18,7 +18,9 @@
     (function () {
 
       Polymer({
-        // define element prototype here
+        chooseFilm: function () {
+          this.fire("filmChoosed", this.film);
+        }
       });
 
     })();
