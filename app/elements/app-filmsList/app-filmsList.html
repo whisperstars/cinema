@@ -1,0 +1,23 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<polymer-element name="app-filmsList" attributes="films">
+  <template>
+    <link rel="stylesheet" href="app-filmsList.css">
+    <template repeat="{{film in filmsList}}">
+      <app-film film="{{film}}"></app-film>
+    </template>
+  </template>
+  <script>
+    (function () {
+
+      Polymer({
+        filmsChanged: function () {
+          if (this.films) {
+            this.filmsList = JSON.parse(this.films);
+          }
+        }
+      });
+
+    })();
+  </script>
+</polymer-element>

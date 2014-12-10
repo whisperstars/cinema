@@ -1,14 +1,31 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/core-field/core-field.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../bower_components/core-ajax/core-ajax.html">
 
 <polymer-element name="app-dateFilmsFilter" attributes="">
   <template>
     <link rel="stylesheet" href="app-dateFilmsFilter.css">
+
+    <core-field>
+      <paper-input label="Choose date" value="{{date}}"></paper-input>
+      <paper-icon-button icon="search" on-click="{{filterFilmsList}}"></paper-icon-button>
+      <core-ajax id="AjaxForFilmsList" params="{{params}}" url="../../films.json" handleAs="json" on-core-response="{{AjaxForFilmsListResponse}}"></core-ajax>
+    </core-field>
   </template>
   <script>
     (function () {
 
       Polymer({
-        // define element prototype here
+        filterFilmsList: function () {
+          this.params = JSON.stringify({date: this.date});
+          this.$.AjaxForFilmsList.go();
+        },
+
+        AjaxForFilmsListResponse: function (e) {
+          this.fire("FilmListChanged", {filmList:e.detail.response});
+        }
       });
 
     })();

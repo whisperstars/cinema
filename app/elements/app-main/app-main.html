@@ -6,25 +6,27 @@
     <div class="wrapper">
       <header>
         <app-time></app-time>
-        <app-dateFilmsFilter></app-dateFilmsFilter>
+        <app-dateFilmsFilter id="dateFilmsFilter" filmList="{{filmList}}"></app-dateFilmsFilter>
       </header>
       
       <main>
-        <!--<app-page id="filmsList">
-          <app-filmsList></app-filmsList>
-        </app-page>
-        <app-page id="cinemaHall">
+        <app-filmsList id="filmsList" films='{{filmsList}}'></app-filmsList>
+        <!--<app-page id="cinemaHall">films="{{[filmsList]}}"
           <app-cinemaHall></app-cinemaHall>
           <app-filmDetails></app-filmDetails>
-        </app-page>-->
-      </main>
+        </app-page>
+      </main>-->
     </div>
   </template>
   <script>
     (function () {
 
       Polymer({
-        // define element prototype here
+        ready: function () {
+          this.$.dateFilmsFilter.addEventListener('FilmListChanged', function (e) {
+            this.filmsList = JSON.stringify(e.detail.filmList);
+          }.bind(this));
+        }
       });
 
     })();

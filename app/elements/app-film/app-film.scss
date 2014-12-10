@@ -1,0 +1,13 @@
+$shadow-color: #ccc;
+
+:host {
+    display: inline-block;
+    
+    .film {
+        -webkit-box-shadow: 0 0 5px $shadow-color;
+          box-shadow: 0 0 5px $shadow-color;
+        -webkit-border-radius: 3px;
+          border-radius: 3px;
+        border: 1px solid $shadow-color;
+    }
+}

@@ -1,0 +1,6 @@
+[
+    {"name":"name1", "date":"date1", "times":["2:32","18:00"], "description":"film #1"},
+    {"name":"name2", "date":"date1", "times":["15:32","16:00"], "description":"film #2"},
+    {"name":"name3", "date":"date1", "times":["12:32","20:00"], "description":"film #3"},
+    {"name":"name4", "date":"date1", "times":["09:00","11:00"], "description":"film #4"}
+]

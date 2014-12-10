@@ -1,0 +1,26 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<polymer-element name="app-film" attributes="film">
+  <template>
+    <link rel="stylesheet" href="app-film.css">
+    
+    <div class="film">
+      <div class="name">{{film.name}}</div>
+      <div class="description">{{film.description}}</div>
+      <div class="times">
+        <template repeat="{{time in film.times}}">
+          <div class="time">{{time}}</div>
+        </template>
+      </div>
+    </div>
+  </template>
+  <script>
+    (function () {
+
+      Polymer({
+        // define element prototype here
+      });
+
+    })();
+  </script>
+</polymer-element>
